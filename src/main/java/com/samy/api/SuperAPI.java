@@ -1,16 +1,33 @@
 package com.samy.api;
 
-import org.bukkit.entity.Player;
+import com.samy.api.friends.IFriendsManager;
+import com.samy.api.message.IMessageManager;
+import com.samy.api.party.IPartyManager;
+import com.samy.api.rank.IRankManager;
+import com.samy.api.scoreboard.IScoreboardManager;
+import org.bukkit.plugin.java.JavaPlugin;
 
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
+public abstract class SuperAPI {
 
-public interface SuperAPI {
-    Map<UUID, List<UUID>> getFriends();
-    void createRankTab();
-    void createTeams(List<TeamGame> teams);
-    void joinTeam(Player player, TeamGame team);
+    private static SuperAPI instance;
+    private final JavaPlugin plugin;
 
-    void setScoreboard(String header, List<String> lines, Player player);
+    public SuperAPI(JavaPlugin plugin) {
+        this.plugin = plugin;
+        instance = this;
+    }
+
+    public static SuperAPI getInstance() {
+        return instance;
+    }
+    public JavaPlugin getPlugin() { return plugin; }
+
+    public abstract String getServerName();
+
+    public abstract IFriendsManager getFriendsManager();
+    public abstract IMessageManager getMessageManager();
+    public abstract IPartyManager getPartyManager();
+    public abstract IRankManager getRankManager();
+    public abstract IScoreboardManager getScoreboardManager();
+
 }
