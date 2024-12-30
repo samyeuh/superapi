@@ -24,7 +24,6 @@ public abstract class SuperAPI {
     public JavaPlugin getPlugin() { return plugin; }
 
     public abstract String getServerName();
-
     public abstract IFriendsManager getFriendsManager();
     public abstract IMessageManager getMessageManager();
     public abstract IPartyManager getPartyManager();

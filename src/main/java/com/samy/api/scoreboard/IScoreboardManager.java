@@ -12,6 +12,7 @@ public interface IScoreboardManager {
     void updateScoreboard();
     void updateTab();
     void updateSidebar();
+    void removePlayer(Player player);
     ITabManager getTabManager();
     ISidebarManager getSidebarManager();
 }
