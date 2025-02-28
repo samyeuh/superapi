@@ -7,13 +7,25 @@ import java.util.List;
 
 public abstract class TeamGame {
 
-    public String name;
-    public ChatColor color;
-    public List<Player> players;
+    private final String name;
+    private final ChatColor color;
+    private final List<Player> players;
 
     public TeamGame(String name, ChatColor color, List<Player> players) {
         this.name = name;
         this.color = color;
         this.players = players;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public ChatColor getColor() {
+        return color;
+    }
+
+    public List<Player> getPlayers() {
+        return players;
     }
 }
